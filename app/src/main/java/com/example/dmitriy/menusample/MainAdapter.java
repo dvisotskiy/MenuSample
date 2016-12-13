@@ -11,18 +11,16 @@ import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ItemViewHolder> {
 
-    public interface OnItemClickListener<T> {
+    public interface OnItemClickListener {
         void onItemClick(View v, Item item);
     }
 
     private List<Item> items;
     private OnItemClickListener listener;
 
-
     public MainAdapter(List<Item> items, OnItemClickListener listener) {
         this.items = items;
         this.listener = listener;
-
     }
 
     @Override
@@ -51,11 +49,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ItemViewHolder
         return items.size();
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder {
 
         private TextView title;
 
-        public ItemViewHolder(View view) {
+        ItemViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
         }
